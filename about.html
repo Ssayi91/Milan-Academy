@@ -83,39 +83,54 @@
     <div class="absolute top-1/2 right-1/3 w-28 h-28 bg-accent-butter/20 rounded-full blur-xl"></div>
   </div>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/2547XXXXXXXX?text=Hi%20Edensafe!%20I%27m%20interested%20in%20learning%20more." 
-     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary-500 text-white flex items-center justify-center shadow-lg hover:bg-primary-600 transition-all animate-bounce"
-     target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-    </svg>
-  </a>
+  <!-- NAVBAR -->
+<header class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Brand / Logo -->
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-accent-butter/90 text-primary-800 font-extrabold">E</div>
+      <span class="font-bold text-lg text-primary-700">Edensafe Montessori Kindergarten and International school</span>
+    </a>
 
-  <!-- Navbar -->
-  <nav class="fixed w-full z-40 bg-white/90 backdrop-blur-sm shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="font-bold text-xl text-primary-700">Edensafe Montessori Kindergarten and International school</a>
-      <div class="hidden md:flex space-x-8">
-        <a href="index.html" class="font-medium hover:text-primary-600">Home</a>
-        <a href="about.html" class="font-medium text-primary-600 border-b-2 border-primary-500">About</a>
-        <a href="index.html#admissions" class="font-medium hover:text-primary-600">Admissions</a>
-        <a href="index.html#contact" class="font-medium hover:text-primary-600">Contact</a>
-      </div>
-      <button id="menuToggle" class="md:hidden text-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="index.html" class="text-sm font-medium hover:text-primary-600">Home</a>
+      <a href="about.html" class="text-sm font-semibold text-primary-700 border-b-2 border-primary-500">About</a>
+      <a href="admission.html" class="text-sm font-medium hover:text-primary-600">Admissions</a>
+      <a href="contact.html" class="text-sm font-medium hover:text-primary-600">Contact</a>
+      <a href="https://wa.me/2547XXXXXXXX" class="ml-4 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-primary-500 text-white shadow-sm hover:bg-primary-600" aria-label="Contact on WhatsApp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="1.2" />
         </svg>
-      </button>
-    </div>
+        WhatsApp
+      </a>
+    </nav>
 
-    <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-3 border-t">
-      <a href="index.html" class="block py-2 font-medium hover:text-primary-600">Home</a>
-      <a href="about.html" class="block py-2 font-medium text-primary-600">About</a>
-      <a href="index.html#admissions" class="block py-2 font-medium hover:text-primary-600">Admissions</a>
-      <a href="index.html#contact" class="block py-2 font-medium hover:text-primary-600">Contact</a>
-    </div>
-  </nav>
+    <!-- Mobile Menu Button -->
+    <button id="menuToggle" class="md:hidden p-2 rounded-md focus:ring-2 focus:ring-primary-300" aria-label="Open menu">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden>
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="#1f2937" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 border-t bg-white/95 space-y-3">
+    <a href="index.html" class="block py-2 font-medium hover:text-primary-600">Home</a>
+    <a href="about.html" class="block py-2 font-semibold text-primary-700 border-b-2 border-primary-500">About</a>
+    <a href="admission.html" class="block py-2 font-medium hover:text-primary-600">Admissions</a>
+    <a href="contact.html" class="block py-2 font-medium hover:text-primary-600">Contact</a>
+  </div>
+</header>
+
+<!-- Mobile Menu Toggle Script -->
+<!-- <script>
+  ocument.getElementById('menuToggle').addEventListener('click', function() {
+    dconst m = document.getElementById('mobileMenu');
+    if (!m) return;
+    m.classList.toggle('hidden');
+  });
+</script> -->
 
   <!-- HERO SECTION -->
   <section class="relative pt-32 pb-24 px-4">

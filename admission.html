@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admissions • Edensafe Montessori</title>
+
+  <!-- Font (keeps consistent with other pages) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              5: 'rgb(0 14 27 / var(--tw-bg-opacity, 1))',
+              10:'#D6ED17',
+              20: '#122620',
+              50: '#f0f9f4',
+              100: '#d1eade',
+              200: '#a8d8c4',
+              300: '#7fc7aa',
+              400: '#56b690',
+              500: '#2ea576',
+              600: '#258a60',
+              700: '#1d6e4d',
+              800: '#16533a',
+              900: '#0f3827',
+            },
+            accent: {
+              coral: '#ff9e85',
+              butter: '#ffd166',
+              sky: '#a2d2ff',
+              clay: '#d8b4a0',
+            }
+          },
+          fontFamily: {
+            sans: ['Fredoka', 'sans-serif']
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            drift: {
+              '0%': { transform: 'translateX(0)' },
+              '50%': { transform: 'translateX(-6px)' },
+              '100%': { transform: 'translateX(0)' },
+            }
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            drift: 'drift 8s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: Fredoka, sans-serif; background: #fbfdfc; color: #1f2937; -webkit-font-smoothing:antialiased; }
+    .hand-drawn-border { border: 2px solid; border-image: linear-gradient(90deg,#2ea576,#ff9e85) 1; border-radius: 14px; }
+    .clip-blob { clip-path: polygon(18% 0%, 88% 6%, 100% 46%, 82% 92%, 22% 100%, 0% 52%); }
+    .soft-glass { background: rgba(255,255,255,0.7); backdrop-filter: blur(6px); }
+    /* small helpers */
+    .lead { color: rgba(10,20,18,0.85); }
+    .muted { color: #6b7280; }
+
+    /* make inline SVGs ignore pointer events so they won't block clicks */
+    .decor-svg { pointer-events: none; }
+
+    /* responsive hero height */
+    @media (min-width: 1024px) {
+      .hero-h { min-height: 64vh; }
+    }
+    @media (max-width: 1023px) {
+      .hero-h { min-height: 40vh; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Mixed Beads SVGs (STYLE 3: inline, layered, animated) -->
+  <svg class="decor-svg absolute -z-10 opacity-30 left-4 top-8 w-48 animate-drift" viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <!-- playful mixed beads: circles, small bars, dots -->
+    <defs>
+      <linearGradient id="gA" x1="0" x2="1">
+        <stop offset="0" stop-color="#ffd166"/>
+        <stop offset="1" stop-color="#ff9e85"/>
+      </linearGradient>
+    </defs>
+    <g transform="translate(0,8)">
+      <rect x="10" y="8" width="36" height="8" rx="4" fill="#a2d2ff" />
+      <circle cx="62" cy="12" r="10" fill="#ffd166" />
+      <circle cx="88" cy="12" r="8" fill="#ff9e85"/>
+      <rect x="104" y="6" width="24" height="12" rx="6" fill="#d8b4a0"/>
+      <circle cx="140" cy="12" r="6" fill="#7fc7aa"/>
+      <circle cx="164" cy="12" r="10" fill="url(#gA)"/>
+      <rect x="186" y="6" width="36" height="8" rx="4" fill="#a2d2ff" />
+    </g>
+  </svg>
+
+  <svg class="decor-svg absolute -z-10 opacity-22 right-6 top-48 w-64 animate-float" viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <g transform="translate(10,10)">
+      <circle cx="18" cy="18" r="12" fill="#ffd166"/>
+      <rect x="42" y="6" width="28" height="20" rx="6" fill="#a2d2ff"/>
+      <circle cx="86" cy="18" r="8" fill="#ff9e85"/>
+      <circle cx="110" cy="18" r="14" fill="#7fc7aa"/>
+      <rect x="136" y="10" width="36" height="12" rx="6" fill="#d8b4a0"/>
+      <circle cx="194" cy="18" r="10" fill="#ffd166"/>
+    </g>
+  </svg>
+
+  <!-- Slightly improved Montessori-themed NAVBAR (Option B) -->
+  <header class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-accent-butter/90 text-primary-800 font-extrabold">E</div>
+        <span class="font-bold text-lg text-primary-700">Edensafe Montessori Kindergarten and International school</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-sm font-medium hover:text-primary-600">Home</a>
+        <a href="about.html" class="text-sm font-medium hover:text-primary-600">About</a>
+        <a href="admission.html" class="text-sm font-semibold text-primary-700 border-b-2 border-primary-500">Admissions</a>
+        <a href="contact.html" class="text-sm font-medium hover:text-primary-600">Contact</a>
+        <a href="https://wa.me/2547XXXXXXXX" class="ml-4 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-primary-500 text-white shadow-sm hover:bg-primary-600" aria-label="Contact on WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="1.2" /></svg>
+          WhatsApp
+        </a>
+      </nav>
+
+      <button id="menuToggle" class="md:hidden p-2 rounded-md focus:ring-2 focus:ring-primary-300" aria-label="Open menu">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M4 6h16M4 12h16M4 18h16" stroke="#1f2937" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 border-t bg-white/95">
+      <a href="index.html" class="block py-2">Home</a>
+      <a href="about.html" class="block py-2">About</a>
+      <a href="admission.html" class="block py-2 font-semibold text-primary-700">Admissions</a>
+      <a href="contact.html" class="block py-2">Contact</a>
+    </div>
+  </header>
+
+  <main class="pt-20">
+
+    <!-- HERO -->
+    <section class="relative hero-h bg-cover bg-center" style="background-image: url('assets/montessori-hero.jpg');">
+      <div class="absolute inset-0 bg-black/45"></div>
+
+      <!-- floating small beadsSVG (repeated along hero) -->
+      <svg class="absolute left-8 top-8 w-40 opacity-40 decor-svg" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <g transform="translate(0,10)">
+          <circle cx="20" cy="18" r="8" fill="#ffd166"/>
+          <rect x="38" y="10" width="34" height="16" rx="8" fill="#a2d2ff" />
+          <circle cx="86" cy="18" r="10" fill="#ff9e85"/>
+          <circle cx="118" cy="18" r="6" fill="#7fc7aa"/>
+          <rect x="136" y="10" width="56" height="12" rx="6" fill="#d8b4a0"/>
+        </g>
+      </svg>
+
+      <div class="relative z-10 max-w-4xl mx-auto text-center px-4 py-20 text-white">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+          Admissions at <span class="text-accent-butter">Edensafe</span> Montessori & International School
+        </h1>
+        <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl lead">
+          Warm classrooms • small classes • Montessori + Cambridge • inclusive approach — we welcome every child.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#process" class="inline-block px-6 py-3 rounded-full bg-accent-butter text-primary-800 font-semibold shadow hover:scale-[1.02] transition">Book a Tour</a>
+          <a href="#fees" class="inline-block px-6 py-3 rounded-full border-2 border-white/30 text-white font-semibold hover:bg-white/10">See Fees</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE (cards) -->
+    <section class="py-12 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-6">Why Families Choose Edensafe</h2>
+        <p class="text-center muted max-w-2xl mx-auto mb-8">
+          A thoughtful blend of child-led discovery and strong academic foundations — all delivered with compassion and structure.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="hand-drawn-border p-6 rounded-2xl bg-white shadow-sm">
+            <img src="assets/montessori-shelf.jpg" alt="Montessori shelf" class="w-14 h-14 mb-4 rounded" />
+            <h3 class="font-semibold text-lg text-primary-700">Montessori Materials</h3>
+            <p class="mt-2 muted text-sm">Real materials, real outcomes — sensorial tools that build math, language, and concentration.</p>
+          </article>
+
+          <article class="hand-drawn-border p-6 rounded-2xl bg-white shadow-sm">
+            <img src="assets/montessori-teacher.jpg" alt="Teacher guiding child" class="w-14 h-14 mb-4 rounded" />
+            <h3 class="font-semibold text-lg text-primary-700">Skilled Guides</h3>
+            <p class="mt-2 muted text-sm">AMI or Cambridge-trained teachers who observe, then offer lessons that meet each child’s moment.</p>
+          </article>
+
+          <article class="hand-drawn-border p-6 rounded-2xl bg-white shadow-sm">
+            <img src="assets/montessori-materials.jpg" alt="Children working" class="w-14 h-14 mb-4 rounded" />
+            <h3 class="font-semibold text-lg text-primary-700">Inclusive by Design</h3>
+            <p class="mt-2 muted text-sm">Sensory-aware spaces, individualized plans, and a community that celebrates differences.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="py-12 px-4 bg-primary-50">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-6">Admissions Process — simple, clear, kind</h2>
+        <p class="text-center muted max-w-3xl mx-auto mb-8">We guide families step-by-step. No surprises, just warmth and clarity.</p>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Step 1 -->
+          <div class="bg-white p-6 rounded-2xl hand-drawn-border shadow-sm">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent-sky/90 rounded-full flex items-center justify-center text-white font-bold">1</div>
+              <div>
+                <h4 class="font-semibold">Enquiry</h4>
+                <p class="muted text-sm mt-1">Send a message or call — we’ll check availability and answer your questions.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-white p-6 rounded-2xl hand-drawn-border shadow-sm">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent-butter/90 rounded-full flex items-center justify-center text-primary-800 font-bold">2</div>
+              <div>
+                <h4 class="font-semibold">School Tour</h4>
+                <p class="muted text-sm mt-1">See the classrooms, meet guides, and observe Montessori materials in action.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-white p-6 rounded-2xl hand-drawn-border shadow-sm">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent-coral/90 rounded-full flex items-center justify-center text-white font-bold">3</div>
+              <div>
+                <h4 class="font-semibold">Observation & Assessment</h4>
+                <p class="muted text-sm mt-1">A gentle observation to understand learning style and readiness — not a stressful exam.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="bg-white p-6 rounded-2xl hand-drawn-border shadow-sm">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent-clay/90 rounded-full flex items-center justify-center text-white font-bold">4</div>
+              <div>
+                <h4 class="font-semibold">Submit Documents</h4>
+                <p class="muted text-sm mt-1">Birth certificate, photos, immunization records, prior school report (if any).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="bg-white p-6 rounded-2xl hand-drawn-border shadow-sm">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent-sky/80 rounded-full flex items-center justify-center text-white font-bold">5</div>
+              <div>
+                <h4 class="font-semibold">Enroll & Welcome Pack</h4>
+                <p class="muted text-sm mt-1">Secure a place with the registration fee and receive your guide to starting at Edensafe.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="bg-white p-6 rounded-2xl hand-drawn-border shadow-sm">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent-butter/80 rounded-full flex items-center justify-center text-primary-800 font-bold">6</div>
+              <div>
+                <h4 class="font-semibold">Transition Support</h4>
+                <p class="muted text-sm mt-1">We plan gentle transitions and partner with families to ensure confidence and continuity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEES -->
+    <section id="fees" class="py-12 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-6">Fees — transparent & explained</h2>
+        <p class="text-center muted max-w-2xl mx-auto mb-6">Fees shown below are illustrative — contact admissions for the latest schedule and discounts.</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left bg-white rounded-2xl hand-drawn-border overflow-hidden shadow-sm">
+            <thead class="bg-primary-50">
+              <tr>
+                <th class="px-6 py-4 font-semibold">Program</th>
+                <th class="px-6 py-4 font-semibold">Fees per Term</th>
+                <th class="px-6 py-4 font-semibold">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="px-6 py-4">Early Years (Montessori, 2–6)</td>
+                <td class="px-6 py-4">Ksh xxxxx</td>
+                <td class="px-6 py-4 muted">Includes learning materials & basic meals</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-6 py-4">Primary (Cambridge, Year 1–6)</td>
+                <td class="px-6 py-4">Ksh xxxxx</td>
+                <td class="px-6 py-4 muted">Textbooks and assessments additional</td>
+              </tr>
+              <tr class="border-t">
+                <td class="px-6 py-4">Co-curricular</td>
+                <td class="px-6 py-4">From Ksh xxxxx</td>
+                <td class="px-6 py-4 muted">Optional: music, art, sport</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="text-center mt-6">
+          <a href="https://wa.me/2547XXXXXXXX" class="inline-block px-8 py-3 rounded-full bg-primary-500 text-white font-semibold shadow hover:bg-primary-600">Contact Admissions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT TO PREPARE -->
+    <section class="py-12 px-4 bg-primary-50">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-4">What to Prepare</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 bg-white rounded-xl hand-drawn-border shadow-sm">
+            <h4 class="font-semibold">Documents</h4>
+            <ul class="mt-2 text-sm muted">
+              <li>Birth certificate</li>
+              <li>Passport-sized photo</li>
+              <li>Immunization records</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-white rounded-xl hand-drawn-border shadow-sm">
+            <h4 class="font-semibold">Observations</h4>
+            <ul class="mt-2 text-sm muted">
+              <li>Bring your child's comfort items if needed</li>
+              <li>Share any specialist reports</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-white rounded-xl hand-drawn-border shadow-sm">
+            <h4 class="font-semibold">Questions to Ask</h4>
+            <ul class="mt-2 text-sm muted">
+              <li>How are transitions handled?</li>
+              <li>What does a day look like?</li>
+              <li>How is progress communicated?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK FAQ -->
+    <section class="py-10 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-4">FAQ</h2>
+
+        <details class="bg-white p-4 rounded-xl hand-drawn-border mb-3">
+          <summary class="cursor-pointer font-semibold">Do you accept children with additional needs?</summary>
+          <p class="mt-2 muted">Yes. We plan individualized support and sensory accommodations—please speak with admissions before touring.</p>
+        </details>
+
+        <details class="bg-white p-4 rounded-xl hand-drawn-border mb-3">
+          <summary class="cursor-pointer font-semibold">How long is the school day?</summary>
+          <p class="mt-2 muted">Monday–Friday, generally 8:00 AM – 3:30 PM. Aftercare options may be available.</p>
+        </details>
+
+        <details class="bg-white p-4 rounded-xl hand-drawn-border mb-3">
+          <summary class="cursor-pointer font-semibold">Are meals included?</summary>
+          <p class="mt-2 muted">Basic healthy meals are included in the standard fee. Special dietary needs are accommodated on request.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA / Book a Tour -->
+    <section class="py-12 px-4 bg-gradient-to-tr from-white to-primary-50">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-2xl font-bold mb-3">Ready to visit?</h3>
+        <p class="muted mb-6">Come and witness Montessori in action — see the materials, meet the guides, and feel the calm focus.</p>
+        <a href="https://wa.me/2547XXXXXXXX?text=Hi%20Edensafe%20Admissions%20Team%2C%20I%20would%20like%20to%20book%20a%20tour." class="inline-block px-8 py-3 rounded-full bg-accent-butter text-primary-800 font-semibold shadow hover:scale-[1.02] transition">Book a Tour on WhatsApp</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Slightly improved Montessori-themed FOOTER (Option B) -->
+  <footer class="bg-gray-900 text-white mt-12 pt-10 pb-8">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-accent-butter text-primary-800 font-extrabold">E</div>
+          <div>
+            <div class="font-bold">Edensafe Montessori</div>
+            <div class="text-sm muted">Utawala, Nairobi</div>
+          </div>
+        </div>
+        <p class="text-sm muted">A warm, inclusive Montessori & Cambridge school for children aged 2–12. We celebrate curiosity, independence, and kindness.</p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-3">Quick Links</h4>
+        <ul class="text-sm muted space-y-2">
+          <li><a href="index.html#programs" class="hover:text-white">Programs</a></li>
+          <li><a href="about.html" class="hover:text-white">About</a></li>
+          <li><a href="admissions.html" class="hover:text-white">Admissions</a></li>
+          <li><a href="index.html#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold mb-3">Contact</h4>
+        <p class="text-sm muted">📞 +254 7XX XXX XXX</p>
+        <p class="text-sm muted">✉️ info@edensafermontessori.co.ke</p>
+        <div class="mt-4 flex items-center gap-3">
+          <a href="https://wa.me/2547XXXXXXXX" class="px-3 py-2 rounded-full bg-white/10 hover:bg-white/20" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.247-.595-.497-.52-.67.075-.173.595-.669 2.058-.818 2.456-.148.398-.496.67-.496.67s-.297.224-.496.174c-.199-.05-.868-.387-.868-.387s-.397-.199-.621-.298c-.224-.099-.497-.149-.696-.149-.199 0-.52.074-.794.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.307 1.262.489 1.688.625.712.225 1.36.195 1.871.12.539-.079 1.653-.698 1.877-1.305.224-.606.224-1.137.15-1.261-.075-.124-.273-.198-.57-.347"></path></svg></a>
+          <a href="mailto:info@edensafermontessori.co.ke" class="px-3 py-2 rounded-full bg-white/10 hover:bg-white/20" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12.713l-5.314-3.77a1 1 0 00-1.212.144 1 1 0 00-.144 1.212l6.5 7a1 1 0 001.448 0l6.5-7a1 1 0 00-.144-1.212 1 1 0 00-1.212-.144L12 12.713z"></path></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 border-t border-white/10 pt-6 text-center text-sm muted">
+      <div>&copy; 2025 Edensafe Montessori & International School — Utawala, Nairobi</div>
+      <div class="mt-2">Built with care by <a href="https://sonnysayisolutions.co.ke" class="underline text-accent-coral">Sonny Sayi Solutions</a></div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu toggle script -->
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const m = document.getElementById('mobileMenu');
+      if (!m) return;
+      m.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>

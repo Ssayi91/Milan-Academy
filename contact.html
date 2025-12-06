@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact • Edensafe Montessori</title>
+
+  <!-- Fonts & Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              5: 'rgb(0 14 27 / var(--tw-bg-opacity, 1))',
+              10: '#D6ED17',
+              20: '#122620',
+              50: '#f0f9f4',
+              100: '#d1eade',
+              200: '#a8d8c4',
+              300: '#7fc7aa',
+              400: '#56b690',
+              500: '#2ea576',
+              600: '#258a60',
+              700: '#1d6e4d',
+              800: '#16533a',
+              900: '#0f3827',
+            },
+            accent: {
+              coral: '#ff9e85',
+              butter: '#ffd166',
+              sky: '#a2d2ff',
+              clay: '#d8b4a0',
+            }
+          },
+          fontFamily: { sans: ['Fredoka', 'sans-serif'] },
+          keyframes: {
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } }
+          },
+          animation: { float: 'float 5s ease-in-out infinite' }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { background-color: #fdfdfd; overflow-x: hidden; }
+    .clip-blob { clip-path: polygon(20% 0%, 90% 10%, 100% 45%, 80% 90%, 30% 100%, 0% 60%); }
+    .hand-drawn-border { border: 2px solid; border-image: linear-gradient(to right, #2ea576, #ff9e85) 1; border-radius: 16px; }
+    .bg-montessori { background-size: cover; background-position: center; }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800">
+
+  <!-- Floating Background Shapes -->
+  <div class="pointer-events-none fixed inset-0 -z-20 overflow-hidden">
+    <div class="absolute top-10 left-8 w-36 h-36 bg-accent-sky/30 rounded-full blur-2xl animate-float"></div>
+    <div class="absolute bottom-20 right-10 w-40 h-40 bg-accent-coral/30 rounded-full blur-2xl animate-float"></div>
+  </div>
+
+  <!-- NAVBAR (reuse same structure as About page) -->
+  <header class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-accent-butter/90 text-primary-800 font-extrabold">E</div>
+        <span class="font-bold text-lg text-primary-700">Edensafe Montessori Kindergarten and International school</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-sm font-medium hover:text-primary-600">Home</a>
+        <a href="about.html" class="text-sm font-medium hover:text-primary-600">About</a>
+        <a href="admission.html" class="text-sm font-medium hover:text-primary-600">Admissions</a>
+        <a href="contact.html" class="text-sm font-semibold text-primary-700 border-b-2 border-primary-500">Contact</a>
+      </nav>
+      <button id="menuToggle" class="md:hidden p-2 rounded-md focus:ring-2 focus:ring-primary-300" aria-label="Open menu">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="#1f2937" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 border-t bg-white/95 space-y-3">
+      <a href="index.html" class="block py-2 font-medium hover:text-primary-600">Home</a>
+      <a href="about.html" class="block py-2 font-medium hover:text-primary-600">About</a>
+      <a href="admission.html" class="block py-2 font-medium hover:text-primary-600">Admissions</a>
+      <a href="contact.html" class="block py-2 font-semibold text-primary-700 border-b-2 border-primary-500">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO / Intro -->
+  <section class="relative pt-32 pb-20 px-4 bg-primary-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary-700 mb-4">Get in Touch</h1>
+      <p class="text-gray-700 text-lg md:text-xl max-w-2xl mx-auto">
+        Questions, feedback, or tour requests? Reach out and our team will respond promptly.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM & DETAILS -->
+  <section class="py-20 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <!-- Form -->
+      <form class="space-y-6 bg-white p-8 rounded-3xl hand-drawn-border shadow-md">
+        <h2 class="text-2xl font-bold text-primary-700 mb-4">Send Us a Message</h2>
+        <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required>
+        <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required>
+        <input type="tel" placeholder="Phone Number" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500">
+        <textarea placeholder="Your Message" rows="5" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500" required></textarea>
+        <button type="submit" class="w-full bg-primary-500 text-white font-bold py-3 rounded-full hover:bg-primary-600 transition-all shadow-md">Submit</button>
+      </form>
+
+      <!-- Contact Info -->
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-bold text-primary-700 mb-2">Contact Details</h3>
+          <ul class="text-gray-700 space-y-2">
+            <li>📱 Phone: +254 7XX XXX XXX</li>
+            <li>✉️ Email: info@edensafermontessori.co.ke</li>
+            <li>📍 Location: Utawala, Nairobi</li>
+            <li>🕒 Hours: Mon–Fri 7:30 AM – 4:00 PM</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-primary-700 mb-2">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="https://wa.me/2547XXXXXXXX" target="_blank" class="text-gray-700 hover:text-green-400">WhatsApp</a>
+            <a href="mailto:info@edensafermontessori.co.ke" class="text-gray-700 hover:text-yellow-400">Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="py-20 px-4 bg-primary-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-primary-700 mb-6 text-center">Our Location</h2>
+      <div class="w-full h-96 rounded-3xl overflow-hidden shadow-md border-2 border-primary-300">
+        <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-primary-700 mb-10">Frequently Asked Questions</h2>
+      <div class="space-y-4 text-left">
+        <details class="bg-white p-4 rounded-xl shadow-sm hand-drawn-border">
+          <summary class="font-semibold cursor-pointer">What ages do you accept?</summary>
+          <p class="mt-2 text-gray-700">We accept children from 2 to 12 years old, covering Montessori early years and Cambridge primary.</p>
+        </details>
+        <details class="bg-white p-4 rounded-xl shadow-sm hand-drawn-border">
+          <summary class="font-semibold cursor-pointer">How do I book a school tour?</summary>
+          <p class="mt-2 text-gray-700">You can book a tour using the contact form above or via WhatsApp directly at +254 7XX XXX XXX.</p>
+        </details>
+        <details class="bg-white p-4 rounded-xl shadow-sm hand-drawn-border">
+          <summary class="font-semibold cursor-pointer">Do you offer inclusive education?</summary>
+          <p class="mt-2 text-gray-700">Yes, our classrooms are designed to include all learners, including neurodiverse children.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parent Education Section -->
+  <section class="py-20 px-4 bg-primary-50">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-primary-700 mb-6">Parent Education</h2>
+      <p class="text-gray-700 max-w-2xl mx-auto leading-relaxed">
+        We provide resources, workshops, and guidance for parents to support learning at home. Together, school and family create a nurturing ecosystem for your child.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER (reuse structure from About page) -->
+  <footer class="bg-gray-900 text-white pt-12 pb-8 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Edensafe Montessori</h3>
+        <p class="text-gray-300 text-sm">
+          A nurturing, inclusive school in Utawala offering Montessori early years, Cambridge primary, and co-curricular activities.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="index.html#programs" class="hover:text-white">Our Programs</a></li>
+          <li><a href="about.html" class="hover:text-white">About Us</a></li>
+          <li><a href="admission.html" class="hover:text-white">Admissions</a></li>
+          <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Contact Us</h4>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li>📱 +254 7XX XXX XXX</li>
+          <li>✉️ info@edensafermontessori.co.ke</li>
+          <li>📍 Utawala, Nairobi</li>
+          <li>🕒 Mon–Fri: 7:30 AM – 4:00 PM</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Connect With Us</h4>
+        <div class="flex space-x-4">
+          <a href="https://wa.me/2547XXXXXXXX" target="_blank" class="text-gray-300 hover:text-green-400">WhatsApp</a>
+          <a href="mailto:info@edensafermontessori.co.ke" class="text-gray-300 hover:text-yellow-400">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto border-t border-gray-800 mt-10 pt-6 text-center text-gray-400 text-sm">
+      <p>&copy; 2025 Edensafe Montessori & International School. All rights reserved.</p>
+      <p class="mt-1">Utawala, Nairobi</p>
+      <p class="mt-2">
+        Powered by 
+        <a href="https://sonnysayisolutions.co.ke" target="_blank" class="text-accent-coral hover:text-white underline">Sonny Sayi Solutions</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const m = document.getElementById('mobileMenu');
+      if (!m) return;
+      m.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
